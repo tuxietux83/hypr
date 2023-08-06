@@ -3,47 +3,42 @@
 ### Wayland latest
 git clone https://gitlab.freedesktop.org/wayland/wayland.git
 cd wayland
-mkdir build &&
-cd    build &&
-meson setup .. --prefix=/usr --buildtype=release -Ddocumentation=false &&
-ninja
-sudo ninja install
-cd ../..
+meson setup --prefix=/usr --buildtype=release -Ddocumentation=false build/ &&
+ninja -C build/
+sudo ninja -C build/ install
+cd ..
 
 ### Wayland-protocols latest
 git clone https://gitlab.freedesktop.org/wayland/wayland-protocols.git
 cd wayland-protocols
-mkdir build &&
-cd    build &&
-meson setup --prefix=/usr --buildtype=release &&
-ninja
-sudo ninja install
+meson setup --prefix=/usr --buildtype=release build/ &&
+ninja -C build/
+sudo ninja -C build/ install
 cd ../..
 
 ### Libdisplay-info latest
 git clone https://gitlab.freedesktop.org/emersion/libdisplay-info.git
 cd libdisplay-info
-mkdir build &&
-cd    build &&
-meson setup --prefix=/usr --buildtype=release &&
-ninja
-sudo ninja install
+meson setup --prefix=/usr --buildtype=release build/ &&
+ninja -C build/
+sudo ninja -C build/ install
 cd ../..
 
 ### Libliftoff latest
 git clone https://gitlab.freedesktop.org/emersion/libliftoff.git
 cd libliftoff
-meson setup build/
-ninja -C build/
-cd build
-sudo ninja install
-cd ../..
-
-### Wlroots
-git clone https://gitlab.freedesktop.org/wlroots/wlroots.git
 meson setup --prefix=/usr --buildtype=release build/
 ninja -C build/
 sudo ninja -C build/ install
+cd ..
+
+### Wlroots
+git clone https://gitlab.freedesktop.org/wlroots/wlroots.git
+cd wlroots
+meson setup --prefix=/usr --buildtype=release build/ &&
+ninja -C build/
+sudo ninja -C build/ install
+cd ..
 
 
 ### Hyprland latest
