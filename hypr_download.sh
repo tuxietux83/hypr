@@ -5,7 +5,7 @@ git clone https://gitlab.freedesktop.org/wayland/wayland.git
 cd wayland
 mkdir build &&
 cd    build &&
-meson setup --prefix=/usr --buildtype=release \ -Ddocumentation=false &&
+meson setup .. --prefix=/usr --buildtype=release -Ddocumentation=false &&
 ninja
 sudo ninja install
 cd ../..
