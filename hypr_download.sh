@@ -38,6 +38,14 @@ ninja -C build/
 cd build
 sudo ninja install
 cd ../..
+
+### Wlroots
+git clone https://gitlab.freedesktop.org/wlroots/wlroots.git
+meson setup --prefix=/usr --buildtype=release build/
+ninja -C build/
+sudo ninja -C build/ install
+
+
 ### Hyprland latest
 git clone https://github.com/hyprwm/Hyprland.git
 cd Hyprland
