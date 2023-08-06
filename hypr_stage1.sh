@@ -15,7 +15,8 @@ PKGLIST=(
 	libavcodec-dev libavformat-dev libxcb-ewmh2 libxcb-ewmh-dev libxcb-present-dev libxcb-icccm4-dev\
 	libxcb-render-util0-dev libxcb-res0-dev libxcb-xinput-dev xdg-desktop-portal-wlr libpango1.0-dev\
 	hwdata libzfslinux-dev libgbm-dev freebsd-manpages edid-decode libsystemd-dev wayland-scanner++\
- 	pixmap libc++-dev libgtk-4-dev valgrind 
+ 	pixmap libc++-dev libgtk-4-dev valgrind qt6-wayland qtwayland5 pipewire wireplumber polkit-kde-agent-1\
+  	htop
 )
 # Function to check if installed
 function IS_INSTALLED {
