@@ -14,7 +14,8 @@ PKGLIST=(
 	libegl1-mesa-dev glslang-tools libinput-bin libinput-dev libxcb-composite0-dev libavutil-dev\
 	libavcodec-dev libavformat-dev libxcb-ewmh2 libxcb-ewmh-dev libxcb-present-dev libxcb-icccm4-dev\
 	libxcb-render-util0-dev libxcb-res0-dev libxcb-xinput-dev xdg-desktop-portal-wlr libpango1.0-dev\
-	hwdata libzfslinux-dev libgbm-dev freebsd-manpages edid-decode libsystemd-dev wayland-scanner++
+	hwdata libzfslinux-dev libgbm-dev freebsd-manpages edid-decode libsystemd-dev wayland-scanner++\
+ 	pixmap
 )
 # Function to check if installed
 function IS_INSTALLED {
