@@ -37,6 +37,9 @@ for PKG in "${PKGLIST[@]}"; do
   fi
 done
 
+# Some dependencies
+sudo apt build-dep libliftoff libinput wlroots wayland wayland-protocols
+
 # Preps for downloading deps and building hyprland
-mkdir HyprSource && cd HyprSource\
+# mkdir HyprSource && cd HyprSource\
 
