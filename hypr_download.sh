@@ -14,7 +14,7 @@ cd wayland-protocols
 meson setup --prefix=/usr --buildtype=release build/ &&
 ninja -C build/
 sudo ninja -C build/ install
-cd ../..
+cd ..
 
 ### Libdisplay-info latest
 git clone https://gitlab.freedesktop.org/emersion/libdisplay-info.git
@@ -22,7 +22,7 @@ cd libdisplay-info
 meson setup --prefix=/usr --buildtype=release build/ &&
 ninja -C build/
 sudo ninja -C build/ install
-cd ../..
+cd ..
 
 ### Libliftoff latest
 git clone https://gitlab.freedesktop.org/emersion/libliftoff.git
