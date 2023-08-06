@@ -32,6 +32,15 @@ ninja -C build/
 sudo ninja -C build/ install
 cd ..
 
+# Libinput latest
+git clone https://gitlab.freedesktop.org/libinput/libinput
+cd libinput
+sudo apt build-dep libinput -y
+meson setup --prefix=/usr --buildtype=release -Ddocumentation=false build/
+ninja -C build/
+sudo ninja -C build/ install
+cd ..
+
 ### Wlroots
 git clone https://gitlab.freedesktop.org/wlroots/wlroots.git
 cd wlroots
@@ -40,9 +49,10 @@ ninja -C build/
 sudo ninja -C build/ install
 cd ..
 
-
 ### Hyprland latest
-git clone https://github.com/hyprwm/Hyprland.git
+git clone --recursive https://github.com/hyprwm/Hyprland
 cd Hyprland
-sudo make install
-cd ..
+meson subprojects update --reset
+meson setup build
+ninja -C build
+sudo ninja -C build install
