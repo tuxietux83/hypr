@@ -61,6 +61,25 @@ sudo ninja -C build/ install
 cd ..
 read -p "wlroots is installed, press enter to continue ..."
 
+# xdg-desktop-portal-hyprland
+if [ -d xdg-desktop-portal-hyprland ];then rm -rfv xdg-desktop-portal-hyprland ;fi
+git clone https://github.com/hyprwm/xdg-desktop-portal-hyprland.git
+cd xdg-desktop-portal-hyprland
+meson setup --prefix=/usr --buildtype=release build/ &&
+ninja -C build/
+sudo ninja -C build/ install
+cd ..
+
+# Waybar latest
+if [ -d Waybar ];then rm -rfv Waybar ;fi
+git clone https://github.com/Alexays/Waybar.git
+cd Waybar
+#sed -i -e 's/zext_workspace_handle_v1_activate(workspace_handle_);/const std::string command = "hyprctl dispatch workspace " + name_;\n\tsystem(command.c_str());/g' src/modules/wlr/workspace_manager.cpp
+meson setup --prefix=/usr --buildtype=release build/ &&
+ninja -C build/
+sudo ninja -C build/ install
+cd ..
+
 ### Hyprland latest
 if [ -d Hyprland ];then sudo rm -rfv Hyprland ;fi
 git clone --recursive https://github.com/hyprwm/Hyprland
