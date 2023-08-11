@@ -15,6 +15,7 @@ apps=(
     mako-notifier
     nm-tray
     network-manager
+    pavucontrol
     pipewire
     polkit-kde-agent-1
     psmisc
