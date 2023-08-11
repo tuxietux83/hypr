@@ -91,6 +91,22 @@ echo -e "\nWe are going to install some apps:\n\n${apps[*]} ${dep[*]}\n"
 read -p "To continue press Enter ..."
 sudo apt install -y "${apps[@]}" "${dep[@]}" "${libs[@]}"
 #sudo apt install ‑‑no‑install‑recommends sddm
+
+## Setting NetworkManager
+# Check for file /etc/NetworkManager/NetworkManager.conf
+if [ ! -e /etc/NetworkManager/NetworkManager.conf ]; then
+    echo "File /etc/NetworkManager/NetworkManager.conf doesn't exist."
+    exit 1
+fi
+# Check if network is managed=true in /etc/NetworkManager/NetworkManager.conf
+if grep -q "managed=true" /etc/NetworkManager/NetworkManager.conf; then
+    echo "Option 'managed' already set to 'true'."
+else
+    # Modify managed=false in managed=true
+    sed -i 's/managed=false/managed=true/' /etc/NetworkManager/NetworkManager.conf"
+    echo "Option 'managed' modified in 'true'."
+fi
+
 clear
 
 ./011_*
