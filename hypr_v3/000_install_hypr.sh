@@ -103,7 +103,8 @@ if grep -q "managed=true" /etc/NetworkManager/NetworkManager.conf; then
     echo "Option 'managed' already set to 'true'."
 else
     # Modify managed=false in managed=true
-    sudo sed -i 's/managed=false/managed=true/' /etc/NetworkManager/NetworkManager.conf"
+    sudo sed -i 's/managed=false/managed=true/' "/etc/NetworkManager/NetworkManager.conf"
+    sudo service NetworkManager restart
     echo "Option 'managed' modified in 'true'."
 fi
 
