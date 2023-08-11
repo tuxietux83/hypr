@@ -17,6 +17,7 @@ apps=(
     network-manager
     pavucontrol
     pipewire
+    pipewire-pulse
     polkit-kde-agent-1
     psmisc
     thunar
