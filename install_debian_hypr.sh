@@ -567,7 +567,10 @@ case $backup in
 		directories=($(find "$source_dir" -maxdepth 1 -type d -not -path "$exclude_dir" | tail -n +2))
 			for dir in "${directories[@]}"; do
 				dir_name=$(basename "$dir")
-				mv -v "$HOME/.config/${dir_name}" "$dest_dir"
+    				mv_dir="$HOME/.config/${dir_name}"
+    				if [ -d "$mv_dir" ];then
+					mv -v "$mv_dir" "$dest_dir"
+     				fi
 				rsync -av "$source_dir/" "$HOME/.config"
 			done
 		;;
