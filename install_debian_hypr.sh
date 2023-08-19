@@ -361,7 +361,7 @@ echo -e "${action}: ${yellow}If we have a ${green}build${default}. ${yellow}we r
 meson setup --prefix=/usr --buildtype=release -Ddocumentation=false build/ &&
 read -p "${question}: ${yellow}Did the ${red}config${yellow} pass${default}? ${yellow}If ${red}not${yellow} press ${red}Ctrl${default}+${red}c ${yellow}to ${red}abort${default}."
 ninja -C build/
-sudo ninja -C build/ install && cd ..
+sudo ninja -C build/ install
 # Adding user to group input
 echo -e "${action}: ${yellow}Adding ${green}$USER ${yellow} to ${default}input ${cyan}Group${default}."
 if ! groups $USER | grep &>/dev/null "\binput\b";then
