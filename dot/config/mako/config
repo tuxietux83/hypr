@@ -1,3 +1,4 @@
+# Last edit: 19.August.2023
 sort=-priority
 on-notify=exec mpv /usr/share/sounds/freedesktop/stereo/message-new-instant.oga
 font=JetBrainsMono Regular 10
