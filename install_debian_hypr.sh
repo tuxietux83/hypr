@@ -68,6 +68,7 @@ build=(
 	pkg-config
 	cmake
 	check
+ 	golang
 )
 # Libdisplay-info libs
 libdisplay_info=(
@@ -154,7 +155,6 @@ waybar=(
 	catch2
 )
 nwg_look=(
-	golang
 	libwebkit2gtk-4.0-dev
 )
 
