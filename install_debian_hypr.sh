@@ -357,7 +357,7 @@ echo -e "${action}: ${yellow}Cloning repository and entering it ${default}..."
 [ ! -d libinput ] && git clone https://gitlab.freedesktop.org/libinput/libinput
 cd libinput
 echo -e "${action}: ${yellow}If we have a ${green}build${default}. ${yellow}we remove, else we pass ${default}..."
-[ -d build ] && sudo rm -rfv build
+[ -d build ] && rm -rfv build
 meson setup --prefix=/usr --buildtype=release -Ddocumentation=false build/ &&
 read -p "${question}: ${yellow}Did the ${red}config${yellow} pass${default}? ${yellow}If ${red}not${yellow} press ${red}Ctrl${default}+${red}c ${yellow}to ${red}abort${default}."
 ninja -C build/
@@ -380,7 +380,7 @@ echo -e "${action}: ${yellow}Cloning repository and entering it ${default}..."
 [ ! -d libdisplay-info ] && git clone https://gitlab.freedesktop.org/emersion/libdisplay-info.git
 cd libdisplay-info
 echo -e "${action}: ${yellow}If we have a ${green}build${default}. ${yellow}we remove, else we pass ${default}..."
-[ -d build ] && sudo rm -rfv build
+[ -d build ] && rm -rfv build
 meson setup --prefix=/usr --buildtype=release build/ &&
 read -p "${question}: ${yellow}Did the ${red}config${yellow} pass${default}? ${yellow}If ${red}not${yellow} press ${red}Ctrl${default}+${red}c ${yellow}to ${red}abort${default}."
 ninja -C build/ &&
@@ -395,7 +395,7 @@ echo -e "${action}: ${yellow}Cloning repository and entering it ${default}..."
 [ ! -d wayland-protocols ] && git clone https://gitlab.freedesktop.org/wayland/wayland-protocols.git
 cd wayland-protocols
 echo -e "${action}: ${yellow}If we have a ${green}build${default}. ${yellow}we remove, else we pass ${default}..."
-[ -d build ] && sudo rm -rfv build
+[ -d build ] && rm -rfv build
 meson setup --prefix=/usr --buildtype=release build/ &&
 read -p "${question}: ${yellow}Did the ${red}config${yellow} pass${default}? ${yellow}If ${red}not${yellow} press ${red}Ctrl${default}+${red}c ${yellow}to ${red}abort${default}."
 ninja -C build/ &&
@@ -410,7 +410,7 @@ echo -e "${action}: ${yellow}Cloning repository and entering it ${default}..."
 [ ! -d wayland ] && git clone https://gitlab.freedesktop.org/wayland/wayland.git
 cd wayland
 echo -e "${action}: ${yellow}If we have a ${green}build${default}. ${yellow}we remove, else we pass ${default}..."
-[ -d build ] && sudo rm -rfv build
+[ -d build ] && rm -rfv build
 meson setup --prefix=/usr --buildtype=release -Ddocumentation=false build/ &&
 read -p "${question}: ${yellow}Did the ${red}config${yellow} pass${default}? ${yellow}If ${red}not${yellow} press ${red}Ctrl${default}+${red}c ${yellow}to ${red}abort${default}."
 ninja -C build/ &&
@@ -425,7 +425,7 @@ echo -e "${action}: ${yellow}Cloning repository and entering it ${default}..."
 [ ! -d wlroots ] && git clone https://gitlab.freedesktop.org/wlroots/wlroots.git
 cd wlroots
 echo -e "${action}: ${yellow}If we have a ${green}build${default}. ${yellow}we remove, else we pass ${default}..."
-[ -d build ] && sudo rm -rfv build
+[ -d build ] && rm -rfv build
 [ ! -d subprojects/libliftoff ] && git clone https://gitlab.freedesktop.org/emersion/libliftoff.git subprojects/libliftoff
 [ -d subprojects/libliftoff/build ] && sudo rm -rfv subprojects/libliftoff/build
 meson setup --prefix=/usr --buildtype=release build/ &&
@@ -442,7 +442,7 @@ echo -e "${action}: ${yellow}Cloning repository and entering it ${default}..."
 [ ! -d xdg-desktop-portal-hyprland ] && git clone https://github.com/hyprwm/xdg-desktop-portal-hyprland.git
 cd xdg-desktop-portal-hyprland
 echo -e "${action}: ${yellow}If we have a ${green}build${default}. ${yellow}we remove, else we pass ${default}..."
-[ -d build ] && sudo rm -rf build
+[ -d build ] && rm -rf build
 meson setup --prefix=/usr --buildtype=release build/ &&
 read -p "${question}: ${yellow}Did the ${red}config${yellow} pass${default}? ${yellow}If ${red}not${yellow} press ${red}Ctrl${default}+${red}c ${yellow}to ${red}abort${default}."
 ninja -C build/ &&
@@ -457,7 +457,7 @@ echo -e "${action}: ${yellow}Cloning repository and entering it ${default}..."
 [ ! -d Hyprland ] && git clone --recursive https://github.com/hyprwm/Hyprland
 cd Hyprland
 echo -e "${action}: ${yellow}If we have a ${green}build${default}. ${yellow}we remove, else we pass ${default}..."
-[ -d build ] && sudo rm -rfv build
+[ -d build ] && rm -rfv build
 [ ! -d subprojects/libliftoff ] && git clone https://gitlab.freedesktop.org/emersion/libliftoff.git subprojects/libliftoff
 [ -d subprojects/libliftoff/build ] && sudo rm -rfv subrpojects/libliftoff/build
 meson setup --prefix=/usr --buildtype=release build/ &&
@@ -488,7 +488,7 @@ echo -e "${action}: ${yellow}Cloning repository and entering it ${default}..."
 [ ! -d Waybar ] && git clone https://github.com/Alexays/Waybar.git
 cd Waybar
 echo -e "${action}: ${yellow}If we have a ${green}build${default}. ${yellow}we remove, else we pass ${default}..."
-[ -d build ] && sudo rm -rfv build
+[ -d build ] && rm -rfv build
 echo -e "${action}: ${yellow}We patch ${default}src/modules/wlr/workspace_manager.cpp ${yellow}for ${green}Hyprland${default}"
 progress
 sed -i -e 's/zext_workspace_handle_v1_activate(workspace_handle_);/const std::string command = "hyprctl dispatch workspace " + name_;\n\tsystem(command.c_str());/g' src/modules/wlr/workspace_manager.cpp
