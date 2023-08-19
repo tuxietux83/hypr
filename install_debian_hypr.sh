@@ -366,7 +366,7 @@ sudo ninja -C build/ install
 echo -e "${action}: ${yellow}Adding ${green}$USER ${yellow} to ${default}input ${cyan}Group${default}."
 if ! groups $USER | grep &>/dev/null "\binput\b";then
     sudo usermod -a -G input $USER
-    echo -e "${action}: ${yellow}User ${green}$USER${yellow} added to ${default}input ${cyan}Group${default}."
+    echo -e "${info}: ${yellow}User ${green}$USER${yellow} added to ${default}input ${cyan}Group${default}."
 else
     echo -e "${info}: ${yellow}User ${green}$USER${yellow} already is in ${default}input ${cyan}Group${default}."
 fi
