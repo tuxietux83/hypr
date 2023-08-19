@@ -87,7 +87,7 @@ done
 
 ## Notifications
 # We want mako as a daemon, not sure why, but looks good
-systemctl --user stop mako.service && systemctl --user stop mako.service
+systemctl --user is-active mako.service && systemctl --user stop mako.service
 pgrep mako 2>/dev/null && pkill mako
 systemctl --user start mako.service
 echo "mako: => $(systemctl --user is-active mako.service)"
