@@ -1,6 +1,9 @@
 #!/usr/bin/bash
 #NOTE: Not tested on sway!!
-set -e -u
+#set -e -u   # Hyprland dont like this on
+# We need the bar up and running
+[ "$DESKTOP_SESSION" = sway ] && waybar -c $HOME/.config/waybar/config-sway &
+[ "$DESKTOP_SESSION" = hyprland ] && waybar -c $HOME/.config/waybar/config-hypr &
 # Colors
 default=$(tput sgr0)
 black=$(tput setaf 0)
@@ -167,6 +170,3 @@ for service in "${audio[@]}"; do
 		echo -e "$SCTL_INFO$SERVICE_INFO$INFO_ARROW $SERVICE not found! $INFO_CLOSE"
 	fi
 done
-
-# Start waybar if session is sway
-[ "$DESKTOP_SESSION" = sway ] && waybar -c $HOME/.config/waybar/config-sway &
