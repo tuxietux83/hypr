@@ -455,6 +455,7 @@ if [ ! -f $HOME/bin/theme.sh ]; then
 	ls -l $HOME/bin/theme.sh
 fi
 date_tag=$(date +"%Y%m%d%H%M")
+while true; do
 echo -e "${info}: ${yellow}This script depends on config provided in ${green}dot ${yellow}folder${default}"
 echo -e "${info}: ${yellow}Your original configs will be backed up in${default}: $HOME/.config/backup/"
 read -p "${cyan}Proceed${default}: ${green}Y${default}/${green}y ${default}or ${red}N${default}/${red}n${default}: " backup
@@ -481,8 +482,10 @@ case $backup in
 	;;
 	N|n)
 	echo -e "${action} ${yellow} Nothing to do ${default}."
+	exit 0
 	;;
 	*)
 	echo -e "${info}: ${red}Invalid option${default}!"
 	;;
 esac
+done
