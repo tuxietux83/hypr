@@ -409,10 +409,10 @@ clear
 # nwg-look -> Git version (latest)
 read -p "${action}: ${yellow}Trying to install ${green}nwg-look${default}, ${yellow}press ${red}Enter${yellow} to continue${default} ..."
 echo -e "${action}: ${yellow}Cloning repository and entering it ${default}..."
+echo -e "${info}:${yellow} Dont't panic, this will take a while${default} ..."
 [ ! -d nwg-look ] && git clone https://github.com/nwg-piotr/nwg-look.git
 cd nwg-look
 make build
-echo -e "${info}:${yellow} Dont't panic, this will take a while${default} ..."
 read -p "${question}: ${yellow}Did the ${red}build${yellow} pass${default}? ${yellow}If ${red}not${yellow} press ${red}Ctrl${default}+${red}c ${yellow}to ${red}abort${default}."
 [ "$ninjameson" = 1 ] && sudo make install
 cd ../..
