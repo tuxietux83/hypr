@@ -3,7 +3,7 @@
 #set -e -u   # Hyprland dont like this on
 # We need the bar up and running
 [ "$DESKTOP_SESSION" = sway ] && waybar -c $HOME/.config/waybar/config-sway &
-[ "$DESKTOP_SESSION" = hyprland ] && waybar -c $HOME/.config/waybar/config-hypr &
+#[ "$DESKTOP_SESSION" = hyprland ] && waybar -c $HOME/.config/waybar/config-hypr &
 # Colors
 default=$(tput sgr0)
 black=$(tput setaf 0)
