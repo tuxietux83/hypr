@@ -1,9 +1,6 @@
 #!/usr/bin/bash
 #NOTE: Not tested on sway!!
 #set -e -u   # Hyprland dont like this on
-# We need the bar up and running
-[ "$DESKTOP_SESSION" = sway ] && waybar -c $HOME/.config/waybar/config-sway &
-#[ "$DESKTOP_SESSION" = hyprland ] && waybar -c $HOME/.config/waybar/config-hypr &
 # Colors
 default=$(tput sgr0)
 black=$(tput setaf 0)
@@ -170,3 +167,14 @@ for service in "${audio[@]}"; do
 		echo -e "$SCTL_INFO$SERVICE_INFO$INFO_ARROW $SERVICE not found! $INFO_CLOSE"
 	fi
 done
+# We need the bar up and running
+# But we need time for audio services to restart
+SERVICE="waybar"
+SERVICE_UPDATE
+echo -e "$SCTL_INFO$SERVICE_INFO$INFO_ARROW Stopping ...$INFO_CLOSE"
+pkill waybar &>/dev/null
+sleep 5
+echo "$SCTL_INFO$SERVICE_INFO$INFO_ARROW Starting ..."
+[ "$DESKTOP_SESSION" = sway ] && waybar -c $HOME/.config/waybar/config-sway &>/dev/null &
+[ "$DESKTOP_SESSION" = hyprland ] && waybar -c $HOME/.config/waybar/config-hypr &>/dev/null &
+echo "$SCTL_INFO$SERVICE_INFO$INFO_ARROW Started ...$INFO_CHECK"
