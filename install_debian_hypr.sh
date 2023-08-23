@@ -136,6 +136,7 @@ xdg_desktop_portal_hyprland=(
 	libpipewire-0.3-dev
 	libinih-dev
 	xdg-desktop-portal
+ 	qt6-base-dev
 )
 # Hyprland libs
 hyprland=(
