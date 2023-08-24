@@ -357,6 +357,7 @@ echo -e "${action}: ${yellow}If we have a ${green}build${default}. ${yellow}we r
 meson setup --prefix=/usr --buildtype=release build/ &&
 read -p "${question}: ${yellow}Did the ${red}config${yellow} pass${default}? ${yellow}If ${red}not${yellow} press ${red}Ctrl${default}+${red}c ${yellow}to ${red}abort${default}."
 [ "$ninjameson" = 1 ] && ninja -C build/ &&
+[ "$ninjameson" = 1 ] && cd hyprland-share-picker && make all && cd ..
 [ "$ninjameson" = 1 ] && sudo ninja -C build/ install
 cd ..
 clear
@@ -480,6 +481,7 @@ case $backup in
 		done
 	[ -d $HOME/.config/systemd ] && rsync -av --exclude "$source_dir/systemd" "$source_dir/" "$HOME/.config"
 	[ ! -d $HOME/.config/systemd ] && rsync -av "$source_dir/" "$HOME/.config"
+ 	exit 0
 	;;
 	N|n)
 	echo -e "${action} ${yellow} Nothing to do ${default}."
