@@ -164,8 +164,8 @@ waybar=(
 	libfftw3-dev
 	libncurses5-dev
 	libasound2-dev
-	libportaudio-ocaml-dev
-	libsdl2-dev
+	portaudio19-dev
+ 	libsdl2-dev
 	libfmt-dev
 	libspdlog-dev
 	scdoc
