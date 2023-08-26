@@ -439,6 +439,7 @@ clear
 ### Post install
 echo -e "${action}: ${yellow}Post install ${default}..."
 echo
+git clone https://github.com/tuxietux83/dot.git
 # Making network manager work
 echo -e "${action}: ${yellow}Making ${green}NetworkManager ${yellow}to work ${default}..."
 [ -f /etc/NetworkManager/NetworkManager.conf ] && sudo sed -i '/^\[ifupdown\]$/ {N; s/managed=false/managed=true/; }' "/etc/NetworkManager/NetworkManager.conf"
