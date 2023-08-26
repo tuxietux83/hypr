@@ -32,6 +32,9 @@ build=(
 	glslang-tools
 	jq
 	qt6-base-dev
+	scdoc
+	clang-tidy
+	catch2
 )
 lib_dev=(
 	[title]="Dev-Libraries"
@@ -59,7 +62,28 @@ lib_dev=(
 	libinih-dev
 	libpipewire-0.3-dev
 	libwebkit2gtk-4.0-dev
-	
+	libgtkmm-3.0-dev
+	libdbusmenu-gtk3-dev
+	libjsoncpp-dev
+	libnl-3-dev
+	libnl-genl-3-dev
+	libupower-glib-dev
+	libplayerctl-dev
+	libpulse-dev
+	libmpdclient-dev
+	libxkbregistry-dev
+	libjack-dev
+	libwireplumber-0.4-dev
+	libsndio-dev
+	libgtk-layer-shell-dev
+	libiniparser-dev
+	libfftw3-dev
+	libncurses5-dev
+	libasound2-dev
+	portaudio19-dev
+ 	libsdl2-dev
+	libfmt-dev
+	libspdlog-dev
 )
 system=(
 	[title]="System"
@@ -91,6 +115,7 @@ sudo "$pkg_mngr" install -y $var_install
 done
 
 [ ! -f /usr/include/xlocale.h ] && sudo ln -s /usr/include/locale.h /usr/include/xlocale.h
+[ ! -f /usr/include/iniparser.h ] && sudo ln -s -v /usr/include/iniparser/* /usr/include/
 
 # Making install directory
 [ ! -d install ] && mkdir install
@@ -115,6 +140,9 @@ done
 	mv -v libliftoff-v0.4.1 install/hyprland/subprojects/libliftoff && rm -v libliftoff-v0.4.1.tar.gz # libliftoff
 [ ! -d install/xdg-desktop-portal-hyprland ] && git clone https://github.com/hyprwm/xdg-desktop-portal-hyprland.git &&\
 	mv -v xdg-desktop-portal-hyprland install/xdg-desktop-portal-hyprland #xdg-desktop-portal-hyprland
+[ ! -d install/waybar ] && wget -nv https://github.com/Alexays/Waybar/archive/refs/tags/0.9.22.tar.gz &&\
+	tar -zxvf 0.9.22.tar.gz &>/dev/null &&\
+	mv -v Waybar-0.9.22 install/waybar && rm -v 0.9.22.tar.gz # waybar
 
 cd install
 
@@ -142,6 +170,16 @@ ninja -C build
 cd hyprland-share-picker && make all && cd ..
 sudo ninja -C build install
 sudo cp -v ./hyprland-share-picker/build/hyprland-share-picker /usr/bin
+cd ..
+
+#waybar
+cd waybar
+sed -i -e 's/zext_workspace_handle_v1_activate(workspace_handle_);/const std::string command = "hyprctl dispatch workspace " + name_;\n\tsystem(command.c_str());/g' src/modules/wlr/workspace_manager.cpp
+[ -d build ] && rm -rfv build
+[ ! -d build ] && meson setup --prefix=/usr --auto-features=enabled build
+meson configure -Dexperimental=true build
+ninja -C build
+sudo ninja -C build install
 cd ../..
 
 # Delete install dir
