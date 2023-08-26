@@ -26,6 +26,7 @@ build=(
 	cmake
 	meson
 	ninja-build
+ 	golang
 	check
 	hwdata
 	edid-decode
