@@ -239,6 +239,16 @@ sudo apt-add-repository -y non-free contrib
 # Here we go
 clear
 
+# To build, we need some paths to export
+export PKG_CONFIG_PATH=/usr/lib/x86_64-linux-gnu/pkgconfig:$PKG_CONFIG_PATH
+export PKG_CONFIG_PATH=/usr/share/pkgconfig:$PKG_CONFIG_PATH
+#export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig:$PKG_CONFIG_PATH
+#export PKG_CONFIG_PATH=/usr/local/lib64/pkgconfig:$PKG_CONFIG_PATH
+#export PKG_CONFIG_PATH=/usr/local/share/pkgconfig:$PKG_CONFIG_PATH
+export LD_LIBRARY_PATH=/lib/x86_64-linux-gnu:$LD_LIBRARY_PATH
+#export LD_LIBRARY_PATH=/usr/local/lib/:$LD_LIBRARY_PATH
+#export LD_LIBRARY_PATH=/usr/local/lib64/:$LD_LIBRARY_PATH
+
 ### Installing ...
 for installs in "${PKG_LIST[@]}"; do
 var_apps=$(echo "$installs" | cut -d' ' -f1)
